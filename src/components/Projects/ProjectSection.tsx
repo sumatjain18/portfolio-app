@@ -1,5 +1,3 @@
-import React from "react";
-import { Typewriter } from "react-simple-typewriter";
 import ProjectCard from "./ProjectCard";
 
 const projects = [

@@ -28,35 +28,35 @@ const ContactMe = () => {
     setSnackbarOpen(false);
   };
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values : unknown) => {
     console.log("Form values:", values);
 
     if (!form.current) return;
     console.log("Form.current", form.current);
 
-    // emailjs.sendForm("service_eeygubh", "template_j9hpkqj", form.current, "iRnXQ-s3OuMP2VWbn").then(
-    //   () => {
-    //     setSnackbarMessage("Message sent successfully to Sumat!");
-    //     setSnackbarSeverity("success");
-    //     setSnackbarOpen(true);
-    //     console.log("SUCCESS!");
-    //   },
-    //   (error) => {
-    //     setSnackbarMessage(`Failed to send message to Sumat: ${error.text}`);
-    //     setSnackbarSeverity("error");
-    //     setSnackbarOpen(true);
-    //     console.error("FAILED...", error.text);
-    //   }
-    // );
+    emailjs.sendForm("service_eeygubh", "template_j9hpkqj", form.current, "iRnXQ-s3OuMP2VWbn").then(
+      () => {
+        setSnackbarMessage("Message sent successfully to Sumat!");
+        setSnackbarSeverity("success");
+        setSnackbarOpen(true);
+        console.log("SUCCESS!");
+      },
+      (error) => {
+        setSnackbarMessage(`Failed to send message to Sumat: ${error.text}`);
+        setSnackbarSeverity("error");
+        setSnackbarOpen(true);
+        console.error("FAILED...", error.text);
+      }
+    );
 
-    // emailjs.sendForm("service_eeygubh", "template_nem1kdc", form.current, "iRnXQ-s3OuMP2VWbn").then(
-    //   () => {
-    //     console.log("SUCCESS!");
-    //   },
-    //   (error) => {
-    //     console.error("FAILED...", error.text);
-    //   }
-    // );
+    emailjs.sendForm("service_eeygubh", "template_nem1kdc", form.current, "iRnXQ-s3OuMP2VWbn").then(
+      () => {
+        console.log("SUCCESS!");
+      },
+      (error) => {
+        console.error("FAILED...", error.text);
+      }
+    );
     setConfettiActive(true);
     setTimeout(() => {
       setConfettiActive(false);
@@ -123,8 +123,8 @@ const ContactMe = () => {
                   type="text"
                   id="contactNumber"
                   name="user_contactNumber"
-                  onInput={(e) => {
-                    const input = e.target;
+                  onInput={(e : React.FormEvent<HTMLInputElement>) => {
+                    const input = e.currentTarget;
                     input.value = input.value.replace(/\D/g, ""); // Remove non-numeric characters
                     if (input.value.length > 10) {
                       input.value = input.value.slice(0, 10); // Limit to 10 digits

@@ -9,7 +9,7 @@ interface ExperienceCardProps {
   index: number;
 }
 
-export function CareerCard({ title, universityName, dateRange, description, index }: ExperienceCardProps) {
+export function CareerCard({ title, universityName, dateRange, description }: ExperienceCardProps) {
   return (
     <div className="flex gap-4 relative" data-aos="fade-up" data-aos-duration="1500">
       <div className="flex flex-col items-center">

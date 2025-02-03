@@ -1,4 +1,3 @@
-import React from 'react'
 import ProjectSection from '../components/Projects/ProjectSection'
 
 const ProjectsPage = () => {
